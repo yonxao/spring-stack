@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+        指定 starter-parent 为整个工程的父工程，
+        主要作用是引用了大量依赖，并且排除了依赖冲突，
+        故在使用被引用的依赖时，不需要指定版本号
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>net.xiaosaguo.spring-stack</groupId>
+    <artifactId>001-spring-hello</artifactId>
+    <version>0.1</version>
+    <name>001-spring-hello</name>
+    <description>study spring stack</description>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+    <dependencies>
+        <!--
+            Actuator 是 Spring Boot 提供的对应用系统的自省和监控的集成功能，
+            可以查看应用配置的详细信息，例如自动化配置信息、创建的 Spring beans 以及一些环境属性等。
+            在 Spring Boot 2.x 中为了安全期间，Actuator 只开放了两个端点 /actuator/health 和 /actuator/info。可以在配置文件中设置打开。
+            eg：
+            http://localhost:8080/actuator/health
+            http://localhost:8080/actuator/beans
+            详细说明:
+            http://www.ityouknow.com/springboot/2018/02/06/spring-boot-actuator.html
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--
+            在这里我本只想看一下jpa源码中的某个类，故在maven中添加了此依赖，没想到项目报错起不来了，
+            报错原因是添加了jpa，但是没有配置数据源
+        -->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--
+                此插件的说明：https://gist.github.com/roveyx/211d7b108b06116f33dab4ee4d6f22a3
+            -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
