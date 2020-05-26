@@ -16,7 +16,8 @@
 ### 2. 第一个 REST API
 
 1. 引入`spring-boot-starter-web`依赖，项目中即引入了如下依赖：
-     ![web依赖](docs/images/001-spring-boot-starter-web.png)
+    <br>
+    ![web依赖](docs/images/001-spring-boot-starter-web.png)
 
 2. 使用`@RestController`标记一个类（@RestController = @Controller + @ResponseBody），@Controller
 将当前修饰的类注入 Spring IOC 容器，在该类所在的项目启动的过程中，这个类就被实例化。当然也有语义化的作用，
