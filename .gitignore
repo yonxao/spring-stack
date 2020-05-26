@@ -1,8 +1,13 @@
-HELP.md
-target/
+### custom ###
 .mvn
 mvnw
 mvnw.cmd
+log/
+
+### start.spring.io ###
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
 
@@ -31,5 +36,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-
