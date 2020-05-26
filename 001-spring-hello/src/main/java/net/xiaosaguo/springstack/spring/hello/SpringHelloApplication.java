@@ -9,10 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 学习spring全家桶之从 start.spring.io 快速构建项目，在IDEA中集成了此功能，可以直接使用
+ * description: 《学习 Spring 全家桶》之《从 start.spring.io 快速构建项目》
+ * <p>
+ * IntelliJ IDEA 中集成了此功能，可以直接使用：File | New | Project/Model | Spring Initializr
  *
  * @author xiaosaguo
- * @date 2020/5/1
+ * @date 2020/05/01
  */
 @SpringBootApplication
 @RestController
