@@ -1,4 +1,3 @@
-[TOC]
 # spring-stack
 
 本人学习 spring 技术栈的一些 demo。
@@ -19,6 +18,7 @@ https://start.spring.io
 ### 2. 第一个 REST API
 
 1. 引入`spring-boot-starter-web`依赖，项目中即引入了如下依赖：
+    <br>
     ![web依赖](docs/images/001-spring-boot-starter-web.png)
 
 2. 使用`@RestController`标记一个类（@RestController = @Controller + @ResponseBody），@Controller
