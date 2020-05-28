@@ -56,9 +56,9 @@ public class SpringJdbcH2Application implements CommandLineRunner {
 
     public static void main(String[] args) {
         /// SpringApplication.run(SpringJdbcH2Application.class, args);
-        log.warn("--> Application::main1");
+        log.warn("--> Application::main->line1");
         ConfigurableApplicationContext context = SpringApplication.run(SpringJdbcH2Application.class, args);
-        log.warn("--> Application::main2");
+        log.warn("--> Application::main->line2");
         ApplicationArguments applicationArguments = context.getBean(ApplicationArguments.class);
         log.warn("args.asList.toString = {}", Arrays.asList(args));
         log.warn("applicationArguments.getSourceArgs().asList.toString = {}", Arrays.asList(applicationArguments.getSourceArgs()));

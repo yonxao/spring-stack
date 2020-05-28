@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * 注：Bean 初始化 = 实例化 Bean + 装配 Bean的属性（依赖注入）
  * <p>
  * 结论：执行顺序
- * Constructor >> @Resource/@Autowired >> @PostConstruct >> CommandLineRunner/ApplicationRunner(order) >> main->SpringApplication.run 之后的代码
+ * Constructor >> @Resource/@Autowired >> @PostConstruct >> CommandLineRunner/ApplicationRunner(order) >> Application::main->SpringApplication.run() 之后的代码，即 main->line2
  *
  * @author xiaosaguo
  * @date 2020/05/28
