@@ -1,3 +1,4 @@
+[TOC]
 # spring-stack
 
 本人学习 spring 技术栈的一些 demo。
@@ -6,7 +7,9 @@
 
 要点：
 
-### 1. 从`start.spring.io`快速构建项目。
+### 1. 从`start.spring.io`快速构建项目
+
+https://start.spring.io
 
 构建的项目有以下功能：
 - 包含基本项目骨架
@@ -16,7 +19,6 @@
 ### 2. 第一个 REST API
 
 1. 引入`spring-boot-starter-web`依赖，项目中即引入了如下依赖：
-    <br>
     ![web依赖](docs/images/001-spring-boot-starter-web.png)
 
 2. 使用`@RestController`标记一个类（@RestController = @Controller + @ResponseBody），@Controller
@@ -27,11 +29,14 @@
 
 4. 启动项目，访问`localhost:8080/hello`。
 
-### 3. 引入`spring-boot-starter-actuator`依赖
+### 3.启用应用自省和监控功能
 
-启动对应用系统的自省和监控的集成功能，详情看 pom 文件中的注释。
+引入`spring-boot-starter-actuator`依赖，启动对应用系统的自省和监控的集成功能，详情看 pom 文件中的注释。
 
-### 4. 使用 spring boot ，需要在 pom 文件中设置 <parent>，如下：
+### 4. 在 maven 中使用 spring boot
+
+需要在 pom 文件中设置 \<parent> 标签和 spring boot plugin，如下：
+
 1. 设置 parent
      ```xml
      <parent>
@@ -53,18 +58,21 @@
          </plugins>
      </build>
      ```
-设置 parent 为 spring-boot-starter-parent 的主要作用是，此工程引用了大量依赖，并且排除了依赖冲突，
-故在使用被引用的依赖时，也不需要指定版本号。
 
-### 5. 如果因为某种原因无法设置 parent 为 spring-boot-starter-parent 的处理方法
-1. 在 dependencyManagement 如下设置：
+设置 parent 为 spring-boot-starter-parent 的主要作用是，此工程引用了大量依赖，并且排除了依赖冲突，故在使用被引用的依赖时，也不需要指定版本号。
+
+### 5. 无法设置 \<parent> 为 spring-boot-starter-parent 的处理方法
+
+如果因为某种原因无法设置 \<parent> 为 spring-boot-starter-parent，如下处理：
+
+1. 在 dependencyManagement 设置：
      ```xml
      <dependencyManagement>
      	<dependencies>
      		<dependency>
      			<groupId>org.springframework.boot</groupId>
      			<artifactId>spring-boot-dependencies</artifactId>
-     			<version>2.1.1.RELEASE</version>
+     			<version>2.2.6.RELEASE</version>
      			<type>pom</type>
      			<scope>import</scope>
      		</dependency>
@@ -78,7 +86,7 @@
      		<plugin>
      			<groupId>org.springframework.boot</groupId>
      			<artifactId>spring-boot-maven-plugin</artifactId>
-     			<version>2.1.1.RELEASE</version>
+     			<version>2.2.6.RELEASE</version>
      			<executions>
      				<execution>
      					<goals>
