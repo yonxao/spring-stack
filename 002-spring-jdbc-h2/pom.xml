@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>net.xiaosaguo.spring-stack</groupId>
+    <artifactId>002-spring-jdbc-h2</artifactId>
+    <version>1.0</version>
+    <name>002-spring-jdbc-h2</name>
+    <description>some test</description>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!--
+            当其他模块依赖本模块时，如果不写 optional 会进行依赖传递，可以节省开销、减少依赖冲突
+                1. 当 optional 设置为 true 时，此依赖项不会传递到其他模块
+                2. 当 optional 设置为 false 时，此依赖项会传递到其他模块
+             -->
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <!--
+            scope : compile
+                默认值，表示在 build、test、runtime 阶段的 classpath 下都有依赖关系。
+            scope : test
+                表示只在 test 阶段有依赖关系，例如 junit
+            scope : provided
+                表示在 build、test 阶段都有依赖，在 runtime 时并不输出依赖关系而是由容器提供，
+                例如 web war 包都不包括 servlet-api.jar，而是由tomcat等容器来提供
+                开发时，需要用到 servlet-api 这个依赖，但当将应用部署到 web 容器中时，此依赖容器也会提供，
+                如果此时项目中再引用的话就会造成重复引用，会有版本不一致的风险。
+            scope : runtime
+                表示在构建编译阶段不需要，只在 test、runtime 阶段需要。
+                这种主要是指代码里并没有直接引用而是根据配置在运行时动态加载并实例化的情况。
+                虽然用 runtime 的地方改成 compile 也不会出大问题，但是 runtime 的好处是可以避免在程序里意外地直接引用到原本应该动态加载的包。
+                例如 JDBC 连接池。
+            总结 :
+                简单来说，compile、runtime 和 provided 的区别，需要在执行 mvn package 命令，且打包格式是war之类（而不是默认的jar）的时
+                候才能看出来。通过 compile 和 runtime 引入的 jar 包，会出现在你的项目 war 包里，而 provided 引入的 jar 包则不会。
+                通过 compile 和 provided 引入的jar包，里面的类，你在项目中可以直接 import 进来用，编译没问题，
+                但是 runtime 引入的 jar 包中的类，项目代码里不能直接用，用了无法通过编译，只能通过反射之类的方式来用。
+            -->
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
