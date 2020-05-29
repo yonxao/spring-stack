@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    xmlns
+    xmlns 的全称为 xml namespace，即 xml 命名空间，
+    这个很好理解，和 java 中 package 的概念基本一致，起的作用也基本一致：区分重复元素，解决了元素冲突的问题。
+    xmlns 格式定义：xmlns[:name] = "uri"
+    name 可以忽略不填，即为默认命名空间，表现效果则为命名空间中的元素可以不加前辍，在此 xml 中直接使用，类似于下面的 <bean>
+    自定义命名空间，即 name 的值：表现效果为，我们在 xml 文件中使用此命名空间下的元素时，必须加上 context 前辍，类似有下面的 <context:component-scan>
+-->
+<!--
+    xmlns:xsi（xml schema instance）
+    这本质就是声明一个名为 xsi 的命名空间，其值为一个标准的命名空间。
+    此命名空间还定义了 xsi:type, xsi:nil, xsi:schemaLocation 等属性。
+    可以看成是约定俗成的固定写法。
+-->
+<!--
+    xsi:schemaLocation
+    此为 xsi 命名空间中定义的一个属性，用于通知 xml 处理器 xml 文档与 xsd 文件的关联关系。
+    命名空间和命名空间的 xsd (xml schema definition，定义了命名空间下元素的写法) 必须成对出现，中间用空格分隔，可以填写多对对应关系。
+    可以看成是约定俗成的固定写法。
+-->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+       xmlns="http://www.springframework.org/schema/beans"
+>
+    <!-- 可以使用 @ComponentScan 替代 -->
+    <!--<context:component-scan base-package="net.xiaosaguo.springstack.spring.datasource"/>-->
+
+    <!-- 可以使用 @Bean 替代 -->
+    <!--
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="org.h2.Driver"/>
+        <property name="url" value="jdbc:h2:mem:testdb"/>
+        <property name="username" value="SA"/>
+        <property name="password" value=""/>
+    </bean>
+    -->
+</beans>
