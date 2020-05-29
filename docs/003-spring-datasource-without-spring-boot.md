@@ -139,6 +139,7 @@ Spring 事物管理很方便，首先使用注解 @EnableTransactionManagement �
 查看 applicationContext.xml 文件。
 
 1.  xmlns
+
     xmlns 的全称为 xml namespace，即 xml 命名空间，这个和 java 中 package 的概念基本一致，起的作用也基本一致：区分重复元素，解决了元素冲突的问题。
 
     xmlns 格式定义：`xmlns[:name] = "uri"`
