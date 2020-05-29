@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 /**
  * description: 测试 @PostConstruct、@PreDestroy
  * <p>
- * init method 和 destroy method的三种使用方式: https://blog.csdn.net/tuzongxun/article/details/53580695
+ * init method 和 destroy method的三种实现方式: https://blog.csdn.net/tuzongxun/article/details/53580695
  * <p>
  * JSR-250: 在方法上加上注解 @PostConstruct，这个方法就会在 Bean 初始化之后被 Spring 容器执行
  * 注：Bean 初始化 = 实例化 Bean + 装配 Bean的属性（依赖注入）

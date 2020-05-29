@@ -5,7 +5,7 @@
     这个很好理解，和 java 中 package 的概念基本一致，起的作用也基本一致：区分重复元素，解决了元素冲突的问题。
     xmlns 格式定义：xmlns[:name] = "uri"
     name 可以忽略不填，即为默认命名空间，表现效果则为命名空间中的元素可以不加前辍，在此 xml 中直接使用，类似于下面的 <bean>
-    自定义命名空间，即 name 的值：表现效果为，我们在 xml 文件中使用此命名空间下的元素时，必须加上 context 前辍，类似有下面的 <context:component-scan>
+    自定义命名空间，即 name 的值：表现效果为在 xml 文件中使用此命名空间下的元素时，必须加上 context 前辍，类似于下面的 <context:component-scan>
 -->
 <!--
     xmlns:xsi（xml schema instance）

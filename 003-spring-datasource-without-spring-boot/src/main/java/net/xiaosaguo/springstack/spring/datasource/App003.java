@@ -28,10 +28,10 @@ import java.util.Properties;
  * 2. 配置了 PlatformTransactionManager
  * <p>
  * {@link @Configuration} 用法：
- * 表示一个类声明一个或多个 @Bean 方法，并且可能被 Spring 容器在运行时态为这些 bean 生成 bean 定义和服务请求处理，等价于 {@code <Beans></Beans>}
+ * 表示一个类声明一个或多个 @Bean 方法，并且可能被 Spring 容器在运行时为这些 Bean 生成 Bean 定义和服务请求处理，等价于 {@code <Beans></Beans>}
  * <p>
  * {@link @Bean} 用法：
- * 标记方法生成一个由 Spring 容器管理的 bean，等价于 {@code <Bean></Bean>}
+ * 标记方法生成一个由 Spring 容器管理的 Bean，等价于 {@code <Bean></Bean>}
  * <p>
  * 在 applicationContext.xml 中说明了 xmlns、xmlns:xsi、xsi:schemeLocation 的作用
  *
